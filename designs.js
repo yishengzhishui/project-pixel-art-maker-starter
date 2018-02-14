@@ -2,13 +2,21 @@
 // Select size input  let height, weight;
 let height, weight;
 $("#inputHeight").change(function() {
-
-  height = $("#inputHeight").val();
+  h = $("#inputHeight").val();
+  if (h > 100) {
+    height = 100;
+  } else {
+    height = h ;
+  };
 });
 
 $("#inputWeight").change(function() {
-  weight = $("#inputWeight").val();
-
+  w = $("#inputWeight").val();
+  if (w > 100) {
+    weight = 100;
+  } else {
+    weight = w ;
+  };
 });
 
 // When size is submitted by the user, call makeGrid()
@@ -28,7 +36,6 @@ function clearGrid() {
 //创建新的网格
 $("form").submit(function(event) {
   event.preventDefault();
-  alert("提交");
   clearGrid();
   makeGrid(height,weight);
 });
